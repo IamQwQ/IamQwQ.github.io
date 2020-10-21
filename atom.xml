@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://IamQwQ.github.io</id>
     <title>巨兽的多面体空间</title>
-    <updated>2020-10-21T08:08:11.064Z</updated>
+    <updated>2020-10-21T16:07:49.579Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://IamQwQ.github.io"/>
     <link rel="self" href="https://IamQwQ.github.io/atom.xml"/>
@@ -11,6 +11,79 @@
     <logo>https://IamQwQ.github.io/images/avatar.png</logo>
     <icon>https://IamQwQ.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 巨兽的多面体空间</rights>
+    <entry>
+        <title type="html"><![CDATA[Java Swing组件]]></title>
+        <id>https://IamQwQ.github.io/post/javaSwingAssembly/</id>
+        <link href="https://IamQwQ.github.io/post/javaSwingAssembly/">
+        </link>
+        <updated>2020-10-21T08:20:25.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="swing基本介绍">Swing基本介绍</h2>
+<p>awt是java1.0中的基础类(抽象窗口工具箱) 为了给程序员构建一个通用的gui使其能够在所有的平台上运行，但没有达到预期的效果，所以有了swing</p>
+<p>swing不能代替awt，所以swing和awt是需要同时出现在一个图形用户界面当中</p>
+<h3 id="swing组件特点">swing组件特点</h3>
+<blockquote>
+<p>轻量级</p>
+<p>可插入外观组件</p>
+</blockquote>
+<h2 id="swing的常用窗体及其常用方法">Swing的常用窗体及其常用方法</h2>
+<p>窗体是各个组件的载体，下图为组件和窗体的关系</p>
+<figure data-type="image" tabindex="1"><img src="https://IamQwQ.github.io/post-images/1603295667911.png" alt="" loading="lazy"></figure>
+<h3 id="jframe窗体">JFrame窗体</h3>
+<p>拥有边界和最大化、最小化和关闭的顶层窗口</p>
+<pre><code class="language-java">JFrame jf = new JFrame(&quot;this is a test&quot;);
+Container container = jf.getContentPane();
+</code></pre>
+<p>jf是JFrame对象</p>
+<p>container是Container对象，可以使用JFrame对象调用getContentPane()方法获取，实际上就是获取当前窗口的内容窗格</p>
+<p>swing组件的窗体通常与组件和容器有关，所以JFrame对象创建完成后，需要调用getContentPane() 方法将窗体转换为容器，然后在容器中添加组件或者设置布局管理器</p>
+<p>Q：或许如果自己码字会发现，不使用getContentPane()也是可以直接添加组件的阿，那么getContentPane()方法的意义何在呢？<br>
+A：<a href="https://IamQwQ.github.io/post/javaSwingAssemblyGetcontentpane/">点击跳转至getContentPane的意义研究</a></p>
+<p>容器已经准备好了，此时如果需要把组件添加进容器的话可以使用Container类的add方法</p>
+<pre><code class="language-java">Button testButton = new Button(&quot;test button&quot;);
+container.add(testButton);
+</code></pre>
+<p>阿 常用的方法有空再补上</p>
+<p><code>以下是一个swing显示图片的实例</code></p>
+<pre><code class="language-java">import javax.swing.*
+import java.awt.*
+
+public class test{
+    public static void main(String[] args){
+        
+    }
+    public static void newwindows(String title){
+        //创建JFrame对象
+        JFrame jf = new JFrame(title);
+        //转换为内容窗口对象 
+        //(此处设置颜色使用container对象的原因是rootpane显示在最上层 所以要通过内容窗格来设置颜色)
+        Container container = jf.getContentPane();
+        
+        //窗口设置
+        //设置窗口关闭方式
+        jf.setDefaultCloseOperation(WindowConstant.Exit_On_Close);
+        //设置窗口窗顶栏不可见 (设置不加修饰)
+        jf.setUndecorated(true);
+        //设置窗口可见
+        jf.setVisible(true);
+        //设置窗口透明程度
+        jf.setOpacity(0.5);
+        //窗口颜色
+        container.setBackground(Color.black);
+        
+        //组件设置
+        //创建JLable标签
+        JLable jl = new JLable();
+        //创建imageicon对象用来创建icon图符
+        ImageIcon icon = new ImageIcon(url[此处指url变量]);
+        //seticon方法将icon添加至jl中
+        jl.setIcon(icon);
+        //将jl添加至容器中
+        container.add(jl);
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[TestPage]]></title>
         <id>https://IamQwQ.github.io/post/testpage/</id>

@@ -1,0 +1,258 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Java Swing组件 getContentPane()的意义 | 巨兽的多面体空间</title>
+
+<link rel="shortcut icon" href="https://IamQwQ.github.io/favicon.ico?v=1603296454166">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://IamQwQ.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            巨兽的多面体空间
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1603296454166" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Java Swing组件 getContentPane()的意义
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-10-21 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <p>关于getContentPane()方法有一个疑问，就是在我尝试直接在JFrame对象中add组件的时候也是可以成功显示组件的，那么getContentPane()方法有什么意义呢？</p>
+<p>在参考资料时发现了<a href="https://oomake.com/question/4756247">这个</a>网页中的几个回答</p>
+<blockquote>
+<p>每个Swing顶级容器(和JInternalFrame)都有一个叫做<code>JRootPane</code>的东西。这负责实际管理窗口的整体布局。 根窗格有许多层，其中一个是内容窗格。当您向框架添加内容时(我认为是Java 5)，它会自动添加到内容窗格中，在此之前，您必须自己调用<code>getContentPane().add(...)</code> 看看<a href="http://docs.oracle.com/javase/tutorial/uiswing/components/rootpane.html">How to use RootPanes</a></p>
+</blockquote>
+<blockquote>
+<p>容器中有几层。您可以将图层视为覆盖容器的透明胶片。在Java Swing中，用于保存对象的图层称为内容窗格。对象将添加到容器的内容窗格层。 getContentPane()方法检索内容窗格层，以便您可以向其添加对象。内容窗格是Java运行时环境创建的对象。您不必知道要使用它的内容窗格的名称。当您使用<code>getContentPane()</code>时，内容窗格对象将在那里替换，以便您可以将方法应用于它。</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://IamQwQ.github.io/post-images/1603295823433.png" alt="" loading="lazy"></figure>
+<p>当你实例化任一个Swing容器的时候都会得到一个JRootPane对象，而他会分为四个部分：</p>
+<p><strong>JGlassPane		玻璃窗格：填充了jrootpane的所有可查看区域</strong></p>
+<blockquote>
+<p>当您希望能够捕获事件或在已经包含一个或多个组件的区域上绘画时，玻璃窗格很有用。例如，可以通过使玻璃窗格截获事件来禁用多组件区域的鼠标事件。</p>
+</blockquote>
+<p>同时，你在试图使玻璃窗格可见时，玻璃窗格会拦截所有的鼠标事件</p>
+<p><strong>JLayeredPane   分格窗格：填充了jrootpane的所有可查看区域</strong></p>
+<blockquote>
+<p>分层窗格是具有一定深度的容器，以便重叠的组件可以一个出现在另一个之上。有关分层窗格的一般信息<a href="https://docs.oracle.com/javase/tutorial/uiswing/components/layeredpane.html">，请</a>参见 <a href="https://docs.oracle.com/javase/tutorial/uiswing/components/layeredpane.html">如何使用分层窗格</a>。本节讨论有关根窗格如何使用分层窗格的详细信息。</p>
+<p>每个根窗格将其菜单栏和内容窗格放在的实例中<code>JLayeredPane</code>。分层窗格提供的Z排序使行为成为可能，例如在其他组件上方显示弹出菜单。</p>
+<p>您可以选择将组件放在根窗格的分层窗格中。如果这样做，则应注意已将某些深度定义为用于特定功能，并且应按预期使用深度。否则，您的组件可能无法与其他组件很好地配合使用。这是显示功能层及其关系的图：</p>
+</blockquote>
+<figure data-type="image" tabindex="2"><img src="https://IamQwQ.github.io/post-images/1603295833861.png" alt="" loading="lazy"></figure>
+<table>
+<thead>
+<tr>
+<th>图层名称</th>
+<th>值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FRAME_CONTENT_LAYER</code></td>
+<td><code>new Integer(-30000)</code></td>
+<td style="text-align:left">根窗格在此深度将菜单栏和内容窗格添加到其分层窗格中。</td>
+</tr>
+<tr>
+<td><code>DEFAULT_LAYER</code></td>
+<td><code>new Integer(0)</code></td>
+<td style="text-align:left">如果在将组件添加到分层窗格中时未指定组件的深度，则分层窗格会将其置于该深度。</td>
+</tr>
+<tr>
+<td><code>PALETTE_LAYER</code></td>
+<td><code>new Integer(100)</code></td>
+<td style="text-align:left">该层对于浮动工具栏和调色板很有用。</td>
+</tr>
+<tr>
+<td><code>MODAL_LAYER</code></td>
+<td><code>new Integer(200)</code></td>
+<td style="text-align:left">模态内部框架对话框将属于此层。</td>
+</tr>
+<tr>
+<td><code>POPUP_LAYER</code></td>
+<td><code>new Integer(300)</code></td>
+<td style="text-align:left">弹出窗口位于这一层，因为它们需要出现在几乎所有内容的上方。</td>
+</tr>
+<tr>
+<td><code>DRAG_LAYER</code></td>
+<td><code>new Integer(400)</code></td>
+<td style="text-align:left">旨在在拖动组件时使用。组件在放下后应返回其常规层。</td>
+</tr>
+</tbody>
+</table>
+<p>此处描述可能不够清晰，但其实略一思索便能明白：窗口中有很多种情况需要组件暂时或永久的显示在其他内容上层，比如下拉窗口，或者拖拽窗口以改变其位置时，而Root Pane将Frame Content和Menu Bar添加在此分层窗口,而根据上表可知，其实他被布局在最底层</p>
+<p><strong>JMenuBar		  菜单栏窗格：位于jrootpane的上边缘</strong></p>
+<p><strong>JcontentPane	内容窗格：填充了所有可查看区域</strong></p>
+<p>虽然可以直接在JFrame上add组件，但实际上并不是在内容窗格上添加组件，而如果出现一些需要在内容窗格上才能修改的东西时，在JFrame上修改就会失效</p>
+<pre><code class="language-java">JFrame jf = new JFrame(title);
+Container container = jf.getContentPane();
+
+jf.setBackground(Color.Black);
+container.setBackground(Color.Black);
+</code></pre>
+<blockquote>
+<p>实际上上面一句并不能改变界面的背景色,下面一句才可以,因为rootPane把jf给挡住了,上面一句是改变了jf的背景色,但是你眼睛看到并不是jf，而是rootPane</p>
+</blockquote>
+<p>但是为什么在添加组件的时候就可以看见了呢（（迷惑</p>
+<p>此处问题有待解决，但是最终还是要通过getContentPane来添加组件</p>
+<blockquote>
+<p>在过去的J2SE版本中，部件(components)不能直接添加到最高级(top level)的Swing容器，这些容器包括：JFrame, JDialog, JWindow, JApplet和JInternalFrame. 例如现在有一个JFrame的instance命名为aFrame。 我们要添加一个命名为aComponent的部件（比如一个JPanel）到JFrame里。以往我们需要调用JFrame的 getContentPane()办法。如下：</p>
+<p>aFrame.getContentPane().add(aComponent)</p>
+</blockquote>
+<blockquote>
+<p>在J2SE5.0中，我们可以直接添加部件到最高级的Swing容器，也可以直接在容器内设置布局管理（Layout Manager）和删除部件。这个变化允许我们可以省去调用getContentPane()而直接在容器内应用add(),setLayout()和 remove()。然而，我们还是不能忽略了ContentPane，即使我们可能将不会再使用ContentPane来添加部件到容器。</p>
+</blockquote>
+
+                </div>
+            </article>
+        </div>
+
+        
+
+        
+            <span id="/post/javaSwingAssemblyGetcontentpane/" class="leancloud_visitors" data-flag-title="Java Swing组件 getContentPane()的意义">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'JeaixEGcAfanGpKRejFkS5Cb-gzGzoHsz',
+		appKey: 'Kx1V76ddqGbiJEYNR8sEpcX5',
+		avatar: 'hide',
+		pageSize: 10,
+		recordIp: true,
+		placeholder: 'o(*////▽////*)q 快说些什么吧',
+		visitor: true,
+	});
+</script>
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">暂时使用模板来写文
+会努力来脱离模板的</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+萱草忘忧
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://IamQwQ.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
