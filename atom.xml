@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://IamQwQ.github.io</id>
     <title>巨兽的多面体空间</title>
-    <updated>2020-10-21T07:55:03.709Z</updated>
+    <updated>2020-10-21T08:00:18.347Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://IamQwQ.github.io"/>
     <link rel="self" href="https://IamQwQ.github.io/atom.xml"/>
@@ -11,4 +11,16 @@
     <logo>https://IamQwQ.github.io/images/avatar.png</logo>
     <icon>https://IamQwQ.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 巨兽的多面体空间</rights>
+    <entry>
+        <title type="html"><![CDATA[TestPage]]></title>
+        <id>https://IamQwQ.github.io/post/testpage/</id>
+        <link href="https://IamQwQ.github.io/post/testpage/">
+        </link>
+        <updated>2020-10-21T04:47:55.000Z</updated>
+        <content type="html"><![CDATA[<p>&quot;test test&quot;</p>
+<blockquote>
+<p>markdown is ready</p>
+</blockquote>
+]]></content>
+    </entry>
 </feed>
