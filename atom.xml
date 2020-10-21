@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://IamQwQ.github.io</id>
-    <title>Gridea</title>
-    <updated>2020-10-21T04:42:12.174Z</updated>
+    <title>巨兽的多面体空间</title>
+    <updated>2020-10-21T05:33:04.968Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://IamQwQ.github.io"/>
     <link rel="self" href="https://IamQwQ.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>暂时使用模板来写文
+会努力来脱离模板的</subtitle>
     <logo>https://IamQwQ.github.io/images/avatar.png</logo>
     <icon>https://IamQwQ.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <rights>All rights reserved 2020, 巨兽的多面体空间</rights>
+    <entry>
+        <title type="html"><![CDATA[TestPage]]></title>
+        <id>https://IamQwQ.github.io/post/testpage/</id>
+        <link href="https://IamQwQ.github.io/post/testpage/">
+        </link>
+        <updated>2020-10-21T04:47:55.000Z</updated>
+        <content type="html"><![CDATA[<p>&quot;test test&quot;</p>
+<blockquote>
+<p>markdown is ready</p>
+</blockquote>
+]]></content>
+    </entry>
 </feed>
