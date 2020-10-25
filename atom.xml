@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://IamQwQ.github.io</id>
     <title>巨兽的多面体空间</title>
-    <updated>2020-10-21T16:11:10.363Z</updated>
+    <updated>2020-10-25T19:25:38.426Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://IamQwQ.github.io"/>
     <link rel="self" href="https://IamQwQ.github.io/atom.xml"/>
@@ -11,6 +11,66 @@
     <logo>https://IamQwQ.github.io/images/avatar.png</logo>
     <icon>https://IamQwQ.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 巨兽的多面体空间</rights>
+    <entry>
+        <title type="html"><![CDATA[Java 面向对象]]></title>
+        <id>https://IamQwQ.github.io/post/javaOop/</id>
+        <link href="https://IamQwQ.github.io/post/javaOop/">
+        </link>
+        <updated>2020-10-25T17:49:33.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="初识类">初识类</h3>
+<p>类是面向对象思想中的核心部分，我们通过类来实例化出对象。</p>
+<p>如何理解类和实例化呢？</p>
+<p>类在面向对象思想中应当是抽象、概念的，比如一条狗，他有着相当多的属性和行为，这些属性和行为全部封装在这个类中。</p>
+<figure data-type="image" tabindex="1"><img src="https://IamQwQ.github.io/post-images/1603648333169.png" alt="" loading="lazy"></figure>
+<p>而实例化就是从抽象的类中实际刻画出一个<a href="https://zhidao.baidu.com/question/84649688.html">对象</a>来，只有实例化之后一个对象之后才能调用其属性和行为。</p>
+<h3 id="构成类的成员">构成类的成员</h3>
+<p>上文说过类中存在属性和行为，属性对应代码中的成员变量及常量(统称字段)，而行为则对应方法。除了字段和方法，类还有以下成员</p>
+<ul>
+<li>构造方法</li>
+<li>内部类</li>
+<li>初始化块</li>
+</ul>
+<p>面向对象是一种编程思想，此处既然说到面向对象就不得不提到另一种与其相对的思想：面向过程</p>
+<h3 id="面向过程与面向对象的区别">面向过程与面向对象的区别</h3>
+<p>在面向过程中，我们通常先分析事情所需要的步骤和过程，以一个学生的日常来说：</p>
+<blockquote>
+<ol>
+<li>起床</li>
+<li>穿衣</li>
+<li>洗漱</li>
+<li>上学</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>而这4步就是一步一步地完成，它的顺序很重要，你只需要一个一个地实现就行了。</p>
+</blockquote>
+<p>他的思想重点在于他的过程，程序的流程就是一个函数调用另外一个函数，而这个函数又再调用其他的函数，这里再举一个吃西瓜的例子，当使用面向过程的思想去实现一个人吃西瓜时，直接写一个吃函数，吃什么？吃西瓜参数。</p>
+<p>而面向对象则需要建立一个人的实体，由实体引发事件，先抽象出一个&quot;人&quot;类，在这个&quot;人&quot;类里有一些人的基本属性，如身高，年龄；人还会有行为，所以&quot;人&quot;类中还有方法，走方法，说话方法，吃方法，喝方法等等... 此时需求是让人吃西瓜，所以把抽象的类实例出一个人出来，最终让 人.吃(西瓜)；</p>
+<p>而且面向对象丰富的特性(如继承、多态)使得其十分灵活，而面向过程则显得十分笨重</p>
+<blockquote>
+<p>应对新需求时，无需更改已经测试通过的既有的类。它良好的灵活性和拓展性仿佛天生就是用来适应变化的。</p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于 咖啡]]></title>
+        <id>https://IamQwQ.github.io/post/aboutCoffee/</id>
+        <link href="https://IamQwQ.github.io/post/aboutCoffee/">
+        </link>
+        <updated>2020-10-25T17:16:51.000Z</updated>
+        <content type="html"><![CDATA[<p>写这篇记录之前，我本想去起笔去写java的东西的，但现在是一个晚上，本来精神不振，混混沉沉，所以生出了买瓶装咖啡的想法，现在一瓶咖啡一块面包下肚，配合网易云食用霎时间精神焕发，据主观推测不出意料的话应该是要过美国人的时间表了..</p>
+<blockquote>
+<p>“咖啡”一词源自阿拉伯语“قهوة”，意思是“植物饮料”。在世界各地，人们越来越爱喝咖啡。随之而来的“<a href="https://baike.baidu.com/item/%E5%92%96%E5%95%A1%E6%96%87%E5%8C%96">咖啡文化</a>”充满生活的每个时刻。无论在家里、还是在办公室、或是各种社交场合，人们都在品着咖啡、它逐渐与时尚、现代生活、工作和休闲娱乐联系在一起。</p>
+</blockquote>
+<blockquote>
+<p>咖啡豆含有大约100种不同的物质，包括咖啡因、单宁酸、油和氮化合物等，每100克速溶咖啡中，含咖啡因44～100毫克；每100克调制咖啡中，含咖啡因64～124毫克。咖啡是一种兴奋剂，对人体会产生很多影响，它可利尿、刺激中枢神经和呼吸系统、扩大血管、使心跳加速、增强横纹肌的力量以及缓解大脑和肌肉疲劳。</p>
+</blockquote>
+<p>实实在在的说，接触咖啡的原因是其功能性。虽然很想说是因为其味道独特，入口如何如何，咽下回味又如何如何，但很遗憾，饮用咖啡的绝大多数时候都是觉得需要提神，而且我觉得应该有不会少的人都是因为这个而去喝咖啡的吧。</p>
+<p>为什么喝苦咖啡？</p>
+<p>喝美式低糖的时候确实很苦，只是一开始的时候会这么想，缘于其功效也比其他咖啡要强的多，所以从接触之后时不时就想整一瓶，后来再喝的时候苦的感受却没有那么强烈了，喝下去的时候确实是苦的，但是却忍不住一口一口再喝下去，难道是觉醒了奇怪的品味属性( ? )，凭心而论，喝的时候没有那么仔细品味。在查询其他人为什么喜欢喝苦咖啡时找到了一个满意的答案：</p>
+<p><strong>当你习惯了，它就是美味了</strong>。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Java Swing组件]]></title>
         <id>https://IamQwQ.github.io/post/javaSwingAssembly/</id>

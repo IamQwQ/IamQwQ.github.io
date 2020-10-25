@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Java Swing组件 | 巨兽的多面体空间</title>
+<title>Java 面向对象 | 巨兽的多面体空间</title>
 
 <link rel="shortcut icon" href="https://IamQwQ.github.io/favicon.ico?v=1603648395308">
 
@@ -81,11 +81,11 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    Java Swing组件
+                    Java 面向对象
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-10-21 ·
+                        · 2020-10-26 ·
                     </time>
                     
                         <a href="https://IamQwQ.github.io/tag/java/" class="post-tags">
@@ -94,71 +94,39 @@
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="swing基本介绍">Swing基本介绍</h2>
-<p>awt是java1.0中的基础类(抽象窗口工具箱) 为了给程序员构建一个通用的gui使其能够在所有的平台上运行，但没有达到预期的效果，所以有了swing</p>
-<p>swing不能代替awt，所以swing和awt是需要同时出现在一个图形用户界面当中</p>
-<h3 id="swing组件特点">swing组件特点</h3>
+                    <h3 id="初识类">初识类</h3>
+<p>类是面向对象思想中的核心部分，我们通过类来实例化出对象。</p>
+<p>如何理解类和实例化呢？</p>
+<p>类在面向对象思想中应当是抽象、概念的，比如一条狗，他有着相当多的属性和行为，这些属性和行为全部封装在这个类中。</p>
+<figure data-type="image" tabindex="1"><img src="https://IamQwQ.github.io/post-images/1603648333169.png" alt="" loading="lazy"></figure>
+<p>而实例化就是从抽象的类中实际刻画出一个<a href="https://zhidao.baidu.com/question/84649688.html">对象</a>来，只有实例化之后一个对象之后才能调用其属性和行为。</p>
+<h3 id="构成类的成员">构成类的成员</h3>
+<p>上文说过类中存在属性和行为，属性对应代码中的成员变量及常量(统称字段)，而行为则对应方法。除了字段和方法，类还有以下成员</p>
+<ul>
+<li>构造方法</li>
+<li>内部类</li>
+<li>初始化块</li>
+</ul>
+<p>面向对象是一种编程思想，此处既然说到面向对象就不得不提到另一种与其相对的思想：面向过程</p>
+<h3 id="面向过程与面向对象的区别">面向过程与面向对象的区别</h3>
+<p>在面向过程中，我们通常先分析事情所需要的步骤和过程，以一个学生的日常来说：</p>
 <blockquote>
-<p>轻量级</p>
-<p>可插入外观组件</p>
+<ol>
+<li>起床</li>
+<li>穿衣</li>
+<li>洗漱</li>
+<li>上学</li>
+</ol>
 </blockquote>
-<h2 id="swing的常用窗体及其常用方法">Swing的常用窗体及其常用方法</h2>
-<p>窗体是各个组件的载体，下图为组件和窗体的关系</p>
-<figure data-type="image" tabindex="1"><img src="https://IamQwQ.github.io/post-images/1603295667911.png" alt="" loading="lazy"></figure>
-<h3 id="jframe窗体">JFrame窗体</h3>
-<p>拥有边界和最大化、最小化和关闭的顶层窗口</p>
-<pre><code class="language-java">JFrame jf = new JFrame(&quot;this is a test&quot;);
-Container container = jf.getContentPane();
-</code></pre>
-<p>jf是JFrame对象</p>
-<p>container是Container对象，可以使用JFrame对象调用getContentPane()方法获取，实际上就是获取当前窗口的内容窗格</p>
-<p>swing组件的窗体通常与组件和容器有关，所以JFrame对象创建完成后，需要调用getContentPane() 方法将窗体转换为容器，然后在容器中添加组件或者设置布局管理器</p>
-<p>Q：或许如果自己码字会发现，不使用getContentPane()也是可以直接添加组件的阿，那么getContentPane()方法的意义何在呢？<br>
-A：<a href="https://IamQwQ.github.io/post/javaSwingAssemblyGetcontentpane/">点击跳转至getContentPane的意义研究</a></p>
-<p>容器已经准备好了，此时如果需要把组件添加进容器的话可以使用Container类的add方法</p>
-<pre><code class="language-java">Button testButton = new Button(&quot;test button&quot;);
-container.add(testButton);
-</code></pre>
-<p>阿 常用的方法有空再补上</p>
-<p><code>以下是一个swing显示图片的实例</code></p>
-<pre><code class="language-java">import javax.swing.*
-import java.awt.*
-
-public class test{
-    public static void main(String[] args){
-        
-    }
-    public static void newwindows(String title){
-        //创建JFrame对象
-        JFrame jf = new JFrame(title);
-        //转换为内容窗口对象 
-        //(此处设置颜色使用container对象的原因是rootpane显示在最上层 所以要通过内容窗格来设置颜色)
-        Container container = jf.getContentPane();
-        
-        //窗口设置
-        //设置窗口关闭方式
-        jf.setDefaultCloseOperation(WindowConstant.Exit_On_Close);
-        //设置窗口窗顶栏不可见 (设置不加修饰)
-        jf.setUndecorated(true);
-        //设置窗口可见
-        jf.setVisible(true);
-        //设置窗口透明程度
-        jf.setOpacity(0.5);
-        //窗口颜色
-        container.setBackground(Color.black);
-        
-        //组件设置
-        //创建JLable标签
-        JLable jl = new JLable();
-        //创建imageicon对象用来创建icon图符
-        ImageIcon icon = new ImageIcon(url[此处指url变量]);
-        //seticon方法将icon添加至jl中
-        jl.setIcon(icon);
-        //将jl添加至容器中
-        container.add(jl);
-    }
-}
-</code></pre>
+<blockquote>
+<p>而这4步就是一步一步地完成，它的顺序很重要，你只需要一个一个地实现就行了。</p>
+</blockquote>
+<p>他的思想重点在于他的过程，程序的流程就是一个函数调用另外一个函数，而这个函数又再调用其他的函数，这里再举一个吃西瓜的例子，当使用面向过程的思想去实现一个人吃西瓜时，直接写一个吃函数，吃什么？吃西瓜参数。</p>
+<p>而面向对象则需要建立一个人的实体，由实体引发事件，先抽象出一个&quot;人&quot;类，在这个&quot;人&quot;类里有一些人的基本属性，如身高，年龄；人还会有行为，所以&quot;人&quot;类中还有方法，走方法，说话方法，吃方法，喝方法等等... 此时需求是让人吃西瓜，所以把抽象的类实例出一个人出来，最终让 人.吃(西瓜)；</p>
+<p>而且面向对象丰富的特性(如继承、多态)使得其十分灵活，而面向过程则显得十分笨重</p>
+<blockquote>
+<p>应对新需求时，无需更改已经测试通过的既有的类。它良好的灵活性和拓展性仿佛天生就是用来适应变化的。</p>
+</blockquote>
 
                 </div>
             </article>
@@ -167,14 +135,14 @@ public class test{
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://IamQwQ.github.io/post/testpage/" class="post-title gt-a-link">
-                    TestPage
+                <a href="https://IamQwQ.github.io/post/aboutCoffee/" class="post-title gt-a-link">
+                    关于 咖啡
                 </a>
             </div>
         
 
         
-            <span id="/post/javaSwingAssembly/" class="leancloud_visitors" data-flag-title="Java Swing组件">
+            <span id="/post/javaOop/" class="leancloud_visitors" data-flag-title="Java 面向对象">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>

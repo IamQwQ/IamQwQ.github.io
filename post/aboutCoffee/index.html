@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Java Swing组件 | 巨兽的多面体空间</title>
+<title>关于 咖啡 | 巨兽的多面体空间</title>
 
 <link rel="shortcut icon" href="https://IamQwQ.github.io/favicon.ico?v=1603648395308">
 
@@ -81,84 +81,30 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    Java Swing组件
+                    关于 咖啡
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-10-21 ·
+                        · 2020-10-26 ·
                     </time>
                     
-                        <a href="https://IamQwQ.github.io/tag/java/" class="post-tags">
-                            # java
+                        <a href="https://IamQwQ.github.io/tag/aboutme/" class="post-tags">
+                            # 关于巨兽
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="swing基本介绍">Swing基本介绍</h2>
-<p>awt是java1.0中的基础类(抽象窗口工具箱) 为了给程序员构建一个通用的gui使其能够在所有的平台上运行，但没有达到预期的效果，所以有了swing</p>
-<p>swing不能代替awt，所以swing和awt是需要同时出现在一个图形用户界面当中</p>
-<h3 id="swing组件特点">swing组件特点</h3>
+                    <p>写这篇记录之前，我本想去起笔去写java的东西的，但现在是一个晚上，本来精神不振，混混沉沉，所以生出了买瓶装咖啡的想法，现在一瓶咖啡一块面包下肚，配合网易云食用霎时间精神焕发，据主观推测不出意料的话应该是要过美国人的时间表了..</p>
 <blockquote>
-<p>轻量级</p>
-<p>可插入外观组件</p>
+<p>“咖啡”一词源自阿拉伯语“قهوة”，意思是“植物饮料”。在世界各地，人们越来越爱喝咖啡。随之而来的“<a href="https://baike.baidu.com/item/%E5%92%96%E5%95%A1%E6%96%87%E5%8C%96">咖啡文化</a>”充满生活的每个时刻。无论在家里、还是在办公室、或是各种社交场合，人们都在品着咖啡、它逐渐与时尚、现代生活、工作和休闲娱乐联系在一起。</p>
 </blockquote>
-<h2 id="swing的常用窗体及其常用方法">Swing的常用窗体及其常用方法</h2>
-<p>窗体是各个组件的载体，下图为组件和窗体的关系</p>
-<figure data-type="image" tabindex="1"><img src="https://IamQwQ.github.io/post-images/1603295667911.png" alt="" loading="lazy"></figure>
-<h3 id="jframe窗体">JFrame窗体</h3>
-<p>拥有边界和最大化、最小化和关闭的顶层窗口</p>
-<pre><code class="language-java">JFrame jf = new JFrame(&quot;this is a test&quot;);
-Container container = jf.getContentPane();
-</code></pre>
-<p>jf是JFrame对象</p>
-<p>container是Container对象，可以使用JFrame对象调用getContentPane()方法获取，实际上就是获取当前窗口的内容窗格</p>
-<p>swing组件的窗体通常与组件和容器有关，所以JFrame对象创建完成后，需要调用getContentPane() 方法将窗体转换为容器，然后在容器中添加组件或者设置布局管理器</p>
-<p>Q：或许如果自己码字会发现，不使用getContentPane()也是可以直接添加组件的阿，那么getContentPane()方法的意义何在呢？<br>
-A：<a href="https://IamQwQ.github.io/post/javaSwingAssemblyGetcontentpane/">点击跳转至getContentPane的意义研究</a></p>
-<p>容器已经准备好了，此时如果需要把组件添加进容器的话可以使用Container类的add方法</p>
-<pre><code class="language-java">Button testButton = new Button(&quot;test button&quot;);
-container.add(testButton);
-</code></pre>
-<p>阿 常用的方法有空再补上</p>
-<p><code>以下是一个swing显示图片的实例</code></p>
-<pre><code class="language-java">import javax.swing.*
-import java.awt.*
-
-public class test{
-    public static void main(String[] args){
-        
-    }
-    public static void newwindows(String title){
-        //创建JFrame对象
-        JFrame jf = new JFrame(title);
-        //转换为内容窗口对象 
-        //(此处设置颜色使用container对象的原因是rootpane显示在最上层 所以要通过内容窗格来设置颜色)
-        Container container = jf.getContentPane();
-        
-        //窗口设置
-        //设置窗口关闭方式
-        jf.setDefaultCloseOperation(WindowConstant.Exit_On_Close);
-        //设置窗口窗顶栏不可见 (设置不加修饰)
-        jf.setUndecorated(true);
-        //设置窗口可见
-        jf.setVisible(true);
-        //设置窗口透明程度
-        jf.setOpacity(0.5);
-        //窗口颜色
-        container.setBackground(Color.black);
-        
-        //组件设置
-        //创建JLable标签
-        JLable jl = new JLable();
-        //创建imageicon对象用来创建icon图符
-        ImageIcon icon = new ImageIcon(url[此处指url变量]);
-        //seticon方法将icon添加至jl中
-        jl.setIcon(icon);
-        //将jl添加至容器中
-        container.add(jl);
-    }
-}
-</code></pre>
+<blockquote>
+<p>咖啡豆含有大约100种不同的物质，包括咖啡因、单宁酸、油和氮化合物等，每100克速溶咖啡中，含咖啡因44～100毫克；每100克调制咖啡中，含咖啡因64～124毫克。咖啡是一种兴奋剂，对人体会产生很多影响，它可利尿、刺激中枢神经和呼吸系统、扩大血管、使心跳加速、增强横纹肌的力量以及缓解大脑和肌肉疲劳。</p>
+</blockquote>
+<p>实实在在的说，接触咖啡的原因是其功能性。虽然很想说是因为其味道独特，入口如何如何，咽下回味又如何如何，但很遗憾，饮用咖啡的绝大多数时候都是觉得需要提神，而且我觉得应该有不会少的人都是因为这个而去喝咖啡的吧。</p>
+<p>为什么喝苦咖啡？</p>
+<p>喝美式低糖的时候确实很苦，只是一开始的时候会这么想，缘于其功效也比其他咖啡要强的多，所以从接触之后时不时就想整一瓶，后来再喝的时候苦的感受却没有那么强烈了，喝下去的时候确实是苦的，但是却忍不住一口一口再喝下去，难道是觉醒了奇怪的品味属性( ? )，凭心而论，喝的时候没有那么仔细品味。在查询其他人为什么喜欢喝苦咖啡时找到了一个满意的答案：</p>
+<p><strong>当你习惯了，它就是美味了</strong>。</p>
 
                 </div>
             </article>
@@ -167,14 +113,14 @@ public class test{
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://IamQwQ.github.io/post/testpage/" class="post-title gt-a-link">
-                    TestPage
+                <a href="https://IamQwQ.github.io/post/javaSwingAssembly/" class="post-title gt-a-link">
+                    Java Swing组件
                 </a>
             </div>
         
 
         
-            <span id="/post/javaSwingAssembly/" class="leancloud_visitors" data-flag-title="Java Swing组件">
+            <span id="/post/aboutCoffee/" class="leancloud_visitors" data-flag-title="关于 咖啡">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
