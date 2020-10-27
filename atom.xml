@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://IamQwQ.github.io</id>
     <title>巨兽的多面体空间</title>
-    <updated>2020-10-25T19:26:05.935Z</updated>
+    <updated>2020-10-27T07:44:38.472Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://IamQwQ.github.io"/>
     <link rel="self" href="https://IamQwQ.github.io/atom.xml"/>
@@ -11,6 +11,57 @@
     <logo>https://IamQwQ.github.io/images/avatar.png</logo>
     <icon>https://IamQwQ.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 巨兽的多面体空间</rights>
+    <entry>
+        <title type="html"><![CDATA[「多面体」关于喝咖啡反而更加犯困的问题]]></title>
+        <id>https://IamQwQ.github.io/post/polyhedronCoffeeMakesPeopleSleepy/</id>
+        <link href="https://IamQwQ.github.io/post/polyhedronCoffeeMakesPeopleSleepy/">
+        </link>
+        <updated>2020-10-27T07:38:08.000Z</updated>
+        <content type="html"><![CDATA[<p>以前在和朋友絮叨日常的时候偶尔会听到喝咖啡困的事，开始并没有仔细琢磨，权当是抱怨和哗众取宠了。但是随着时间的流逝，耳闻越来越多的人提到过这方面的事，刚好最近刚写完关于咖啡的事，又突然想起来这件事，顺便翻了翻资料查了一下。</p>
+<p>开始是从咖啡的作用过程开始查的，然后就发现= =</p>
+<blockquote>
+<p>1.竞争性地阻断腺苷受体。2.竞争性地结合苯二氮卓类受体，限制了CI通道的开放。3.使cAMP增多。这是药理作用机制。小剂量的咖啡因能兴奋大脑皮层，因此能提神。而较大剂量能收缩脑血管，故此能够镇痛，但是会成瘾。</p>
+<p>咖啡因是如何作用于人体的？ - 蔡卫纯的回答 - 知乎 https://www.zhihu.com/question/19958348/answer/13476426</p>
+</blockquote>
+<p>有一说一，看不懂。</p>
+<p>在这方面实在提不起兴趣，于是决定不求甚解 orz</p>
+<blockquote>
+<p>埃森克提出外向的人大脑皮层的抑制过程强而兴奋过程弱，他们的神经系统非常发达，对刺激有很强的忍受能力。而内向的人的皮层兴奋过程强而抑制过程弱，所以忍受刺激的能力有限。因此，对外向的人来说他们的大脑对刺激的反应慢且微弱，他们是刺激的寻求者，渴望强烈的感觉刺激，这使得他们通过各种方式来寻求兴奋，他们喜欢参加派对、交朋友、冒险等。相反，内向性格的人天生皮层刺激唤醒水平高，对刺激的反应既迅速又强烈，他们只能忍受微弱的刺激，所以更喜欢阅读、写作、下棋等活动。有研究表明，外向性格的人很早就寻求社会关系，他们的社交技巧发展完善，而社交活动是他们快乐的一大源泉，并且培养了他们自信解决问题的能力。极端外向的人只是在避免无聊，他们的问题是要满足对刺激的需要。</p>
+<p>为什么有些人喝咖啡反而更加犯困？ - 范不说的回答 - 知乎 https://www.zhihu.com/question/25286099/answer/865648712</p>
+</blockquote>
+<p>上面转载的回答有些地方表述的有些模糊，这个理论是艾森克的外-内倾概念，除了具有其本身的一般含义外还与神经系统的兴奋过程和抑制过程相联系，他发现：</p>
+<blockquote>
+<p>兴奋过程可以易化<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>正在进行的感觉、认知和活动；抑制过程可以干扰或影响有机体正在进行的感觉、认知和活动。</p>
+</blockquote>
+<blockquote>
+<p>他发现高外倾性的人兴奋过程发生慢、强度弱、持续时间短，而抑制过程发生快、强度强、维持时间长。这种人难以形成条件反射。高内倾性的人兴奋过程发生快、强度强、持续时间长，而抑制过程发生慢、强度弱、维持时间短。这种人容易形成条件反射。</p>
+</blockquote>
+<p>这是外倾性和内倾性的定义：</p>
+<blockquote>
+<p>瑞士心理学家C.G.荣格于1931年提出的人格类型概念，与内倾相对应。荣格认为,如果一人的心理能量,他的兴趣和注意一般指向外部，指向他人或外部刺激，其行为主要是由外界事物而不是他们个人的思想感情所指导，那么这个人主要是外倾的，否则就是内倾的。</p>
+</blockquote>
+<p>高外倾性的人因为抑制过程作用太强所以对于刺激的接受能力很强，高内倾性的人因为抑制过程效果不高所以更喜欢微弱的刺激，但是咖啡因是直接作用大脑皮层，就算高内倾性的人不喜欢为什么会反而困呢？</p>
+<p>这里涉及到一个名词就是最佳皮质唤醒水平（现在多称为&quot;唤醒水平&quot;）</p>
+<blockquote>
+<p>动机理论里面有一个是理论是唤醒水平理论，就是指人都追求一个最佳的唤醒水平，这个唤醒水平一般比较适中。所以如果是内向的人，本身有较高的唤醒水平，就不需要太多的外界刺激了，否则就会超过最佳唤醒水平。</p>
+</blockquote>
+<blockquote>
+<p>唤醒指在刺激作用下通过脑干的网状结构提高大脑皮层的兴奋性，同时加强肌肉的紧张状态</p>
+</blockquote>
+<p>如果本身就处在最佳的唤醒水平，超过了这个量，在baidu百科定义中是这样表述的</p>
+<blockquote>
+<p>一般人偏好中等唤醒水平，导致最佳唤醒。过高和过低都将导致不好的表现。</p>
+</blockquote>
+<p>（虽然没说&quot;不好的表现是指什么&quot;）</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>易化是局部阈下兴奋状态能使神经元兴奋性升高的现象。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Java 面向对象]]></title>
         <id>https://IamQwQ.github.io/post/javaOop/</id>
