@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://IamQwQ.github.io</id>
     <title>巨兽的多面体空间</title>
-    <updated>2020-10-27T07:47:31.096Z</updated>
+    <updated>2020-11-02T09:09:02.105Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://IamQwQ.github.io"/>
     <link rel="self" href="https://IamQwQ.github.io/atom.xml"/>
@@ -81,6 +81,156 @@
 <li>内部类</li>
 <li>初始化块</li>
 </ul>
+<h4 id="字段">字段</h4>
+<blockquote>
+<p><strong>在方法中定义的变量常量称之为局部变量/常量</strong>，这两种量的生命周期仅存于方法的开始到方法的结束。</p>
+<p>而<strong>在类当中、方法之外定义的变量常量称之为成员变量/常量</strong>，统称字段，他的生命周期比局部变量/常量要长一些。</p>
+</blockquote>
+<p>而<a href="https://blog.csdn.net/github_26672553/article/details/53112645">字段的生命周期</a>会直到GC将对象回收为止</p>
+<blockquote>
+<p>Java GC（Garbage Collection，垃圾收集，垃圾回收）机制，是Java与C++/C的主要区别之一，在使用JAVA的时候，一般不需要专门编写内存回收和垃圾清理代 码。这是因为在Java虚拟机中，存在自动内存管理和垃圾清扫机制。</p>
+<p>电脑的内存大小的不变的，当我们使用对象的时候，如使用New关键字的时候，就会在内存中生产一个对象，但是我们在使用JAVA开发的时候，当一个对象使用完毕之后我们并没有手动的释放那个对象所占用的内存，就这样在使用程序的过程中，对象越来越多，当内存存放不了这么多对象的时候，电脑就会崩溃了，JAVA为了解决这个问题就推出了这个自动清除无用对象的功能，或者叫机制，这就是GC，有个好听是名字叫垃圾回收，其实就在用来帮你擦屁股的，好让你安心写代码，不用管内存释放，对象清理的事情了。</p>
+</blockquote>
+<p>上述内容仅作了解即可。</p>
+<pre><code class="language-java">class Table{
+    //字段 成员变量
+    //品牌
+    String brand;
+    //颜色
+    String color;
+    //高度
+    int height;
+}
+</code></pre>
+<h4 id="方法">方法</h4>
+<p>行为对应的是代码中的方法，它也应被定义在类中。</p>
+<pre><code class="language-java">class Mouse{
+    //字段 成员变量
+    //重量
+    int weight;
+    //颜色
+    String color;
+    
+    //方法
+    //虽然我们现在没有能力写出让老鼠真正的偷吃东西
+    //但是我们可以让他输出一句话作为一个简单的例子
+    void eatSomeThing(){
+        System.out.println(&quot;偷吃东西&quot;);
+    }
+}
+</code></pre>
+<h3 id="实例化">实例化</h3>
+<p>实例化的语法：</p>
+<pre><code class="language-java">类名 实例名;
+实例名 = new 类名();
+</code></pre>
+<pre><code class="language-java">类名 实例名 = new 类名();
+</code></pre>
+<p>调用字段和方法的语法：</p>
+<pre><code class="language-java">实例.字段名;
+实例.方法名(参数);
+//如果方法无参则不填参数
+</code></pre>
+<p>此处以Mouse类为例子进行实例化：</p>
+<pre><code class="language-java">class Mouse{
+    //字段 成员变量
+    //重量
+    int weight;
+    //颜色
+    String color;
+    
+    //方法
+    void eatSomeThing(){
+        System.out.println(&quot;Mouse偷吃了东西&quot;);
+    }
+}
+
+class Test{
+    public static void main(String[] args){
+        //实例化Mouse类
+        Mouse m = new Mouse();
+        //调用Mouse类的字段并赋值
+        m.weight = 10;
+        //调用Mouse类的方法
+        m.eatSomeThing();
+        
+        //输出一下weight字段查看老鼠的大小 (可能是变异鼠 233)
+        System.out.println(&quot;老鼠有&quot;+m.weight+&quot;公斤&quot;);
+    }
+}
+</code></pre>
+<h3 id="static修饰符">static修饰符</h3>
+<p>static修饰的字段、方法或者内部类会在类加载的时候就一并加载，被static修饰的字段、方法或者内部类同时也多了一种可以被调用的方式：</p>
+<pre><code class="language-java">类名.字段名;
+类名.方法名();
+</code></pre>
+<p>一般的类都是把字段和方法封装在其中的，如果调用则需要进行实例化，但被static修饰的是在类加载时就一并加载的，所以不需要实例化。</p>
+<p>被static修饰的成员被称作为静态成员，反之则被称为实例成员，以下是对静态成员特点的总结：</p>
+<blockquote>
+<ul>
+<li>
+<p>类一旦被加载、其也被加载</p>
+</li>
+<li>
+<p>静态成员优先于实例成员</p>
+</li>
+<li>
+<p>静态成员多了一种被调用的方式：类名.字段名/类名.方法名</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="访问控制修饰符">访问控制修饰符</h3>
+<p>访问控制符也分修饰的对象是什么，其中有类修饰符，有方法修饰符和变量修饰符，此分支记录的是访问控制符。</p>
+<p>[权限范围表](C:\Users\HP2020\Documents\XiaoMiNet\Upupoo\Docker\config\ide及工具\快码阿 怎么不码了\Java\java 基础\修饰符作用范围.md)</p>
+<h4 id="类修饰符">类修饰符</h4>
+<h5 id="public">public</h5>
+<p>java的类的访问控制符仅有public一个，每个java程序有且仅有一个类是被public修饰的，那就是主类。</p>
+<h4 id="字段和方法修饰符">字段和方法修饰符</h4>
+<h5 id="public-2">public</h5>
+<p>public是指公共访问控制符，对任何访问他的人公开，具体一些：在类内、package内、子类内和其他package中都可以被访问。</p>
+<blockquote>
+<p>公共访问控制符 public：用 public 修饰的域称为公共域。由于 public 修饰符会降低运行的安全性和数据的封装性，所以一般应减少 public 域的使用。</p>
+</blockquote>
+<h5 id="protected">protected</h5>
+<p>protected是指保护访问控制符，不对其他package开放访问权。</p>
+<h5 id="default">default</h5>
+<p>default是为默认的控制符，不对其他package和子类开放访问权，仅对本类和所在package内开放访问。</p>
+<h5 id="private">private</h5>
+<p>private是指私有访问控制符，仅对本类开放访问权。</p>
+<h3 id="匿名对象">匿名对象</h3>
+<p>当要访问某个方法时，我们总是要先进行实例化，但如果我们只需要进行一次访问，进行实例化就显得有点子麻烦..毕竟要花两行代码呢（？）</p>
+<p>如果我们能够直接访问某个方法就足够方便了，匿名对象就是专为临时访问而生的功能，我们进行实例化时不指向任何实例，而是通过这个对象直接访问其字段和方法。</p>
+<p>下面的例子还是以最开始的老鼠类为基础写的：</p>
+<pre><code class="language-java">new Mouse().eatSomeThing();
+</code></pre>
+<p>但是需要注意的是，因为匿名对象创建对象时没有指向任何实例，所以java把他视为垃圾，在不久之后就会清除掉，因此对其中的变量赋值是没有意义的。</p>
+<p>如果要使用多个方法或字段则还是需要进行实例化。</p>
+<h4 id="使用匿名对象传参">使用匿名对象传参</h4>
+<p>使用对象进行传参时同上述所说原理一样，也可以不使用实例传参，可以视情况直接使用匿名对象的方式传参。</p>
+<pre><code class="language-java">//主类
+class main{
+    //入口函数
+    public static void main(String[] args){
+        //此处使用了静态函数的调用方法并使用了匿名对象传参
+        System.out.println(Calculate.circalPerimeter(new Data().r));
+    }
+}
+
+//计算类
+class Calculate{
+    //计算圆周长方法 (此处方便调用简单设为静态)
+    public static double circalPerimeter(int r){
+        //PI*d是圆周长公式
+        return (r*2*3.14);
+    }
+}
+
+//数据类
+class Data{
+    //此处存储了半径变量
+    int r = 5;
+}
+</code></pre>
 <p>面向对象是一种编程思想，此处既然说到面向对象就不得不提到另一种与其相对的思想：面向过程</p>
 <h3 id="面向过程与面向对象的区别">面向过程与面向对象的区别</h3>
 <p>在面向过程中，我们通常先分析事情所需要的步骤和过程，以一个学生的日常来说：</p>
