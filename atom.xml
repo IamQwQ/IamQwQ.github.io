@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://IamQwQ.github.io</id>
     <title>巨兽的多面体空间</title>
-    <updated>2020-11-08T06:12:19.356Z</updated>
+    <updated>2020-11-08T06:15:07.496Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://IamQwQ.github.io"/>
     <link rel="self" href="https://IamQwQ.github.io/atom.xml"/>
@@ -11,16 +11,6 @@
     <logo>https://IamQwQ.github.io/images/avatar.png</logo>
     <icon>https://IamQwQ.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 巨兽的多面体空间</rights>
-    <entry>
-        <title type="html"><![CDATA[多面体空间]]></title>
-        <id>https://IamQwQ.github.io/post/polyhedronMain/</id>
-        <link href="https://IamQwQ.github.io/post/polyhedronMain/">
-        </link>
-        <updated>2020-11-08T06:11:30.000Z</updated>
-        <content type="html"><![CDATA[<p>在我途经大海时，可能是出于其能见频率较低的缘故，总会去看上几眼。光线泛在规律翻滚的海面上，击碎成了万千个渐变色的多面体。</p>
-<p>这里是缘自生活中的奇思妙想又因兴趣而起研究的地方(‾◡◝)；；</p>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[Java 面向对象]]></title>
         <id>https://IamQwQ.github.io/post/javaOop/</id>
