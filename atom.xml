@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://IamQwQ.github.io</id>
     <title>巨兽的多面体空间</title>
-    <updated>2020-11-10T09:32:53.554Z</updated>
+    <updated>2020-11-10T09:34:28.011Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://IamQwQ.github.io"/>
     <link rel="self" href="https://IamQwQ.github.io/atom.xml"/>
@@ -17,7 +17,8 @@
         <link href="https://IamQwQ.github.io/post/numbersArrangement/">
         </link>
         <updated>2020-11-10T09:30:43.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>本文多数内容转载于b站up主oooooohmygosh与ttttttiger虎的视频 <a href="https://www.bilibili.com/video/BV1zD4y197Qi">传送门</a></strong></p>
+        <content type="html"><![CDATA[<p><strong>本文多数内容转载于b站up主oooooohmygosh与ttttttiger虎的视频 <a href="https://www.bilibili.com/video/BV1zD4y197Qi">传送门</a></strong><br>
+本篇内容后续还会更新其原理及其思路研究；；；代码还也没往上写；；（看视频更方便）</p>
 <p>我们在对若干数字进行排列的时候总是会先去寻找数列中最小或最大的数字放在数列的最前或最后，就像是这样：</p>
 <blockquote>
 <p>3 5 8 <em><strong>*1*</strong></em> 2 9 4 7 6<br>
