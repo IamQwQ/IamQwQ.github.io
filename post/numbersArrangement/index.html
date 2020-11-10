@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>搜索 - 巨兽的多面体空间</title>
+<title>另辟捷径的数字排列方式 | 巨兽的多面体空间</title>
 
 <link rel="shortcut icon" href="https://IamQwQ.github.io/favicon.ico?v=1605000752003">
 
@@ -27,21 +25,11 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.0/dist/fuse.basic.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.3/ejs.min.js"></script>
-    <script src="https://IamQwQ.github.io/media/gridea-search/gridea-search.js"></script>
-    <script src="https://IamQwQ.github.io/media/gridea-search/result-template.ejs" type="text/ejs"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
-
 <body>
-    <style>
-        .searched-keyword {
-            background-color: yellow;
-            color: red;
-        }
-    </style>
-    <div class="main gt-bg-theme-color-first">
-        <nav class="navbar navbar-expand-lg">
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
     <div class="navbar-brand">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -105,16 +93,106 @@
     </div>
 </nav>
 
-        <div id="gridea-search-result" data-update="1605000752003">
-            <div class="searching" style="font-size: 18px; margin-top: 50px;">
-                <i class="fa fa-sync-alt fa-spin"></i>&nbsp;&nbsp;搜索中......
-                <br><br>
-                <span style="font-size: 65%; color: #aaa">第一次搜索可能需要耗费较长时间构建索引，请耐心等待...</span>
-            </div>
-            <div class="no-result" style="display:none; font-size: 20px; margin-top: 50px;">
-                <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;未搜索到相关文章，请更换关键词
-            </div>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    另辟捷径的数字排列方式
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-11-10 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <p><strong>本文多数内容转载于b站up主oooooohmygosh与ttttttiger虎的视频 <a href="https://www.bilibili.com/video/BV1zD4y197Qi">传送门</a></strong></p>
+<p>我们在对若干数字进行排列的时候总是会先去寻找数列中最小或最大的数字放在数列的最前或最后，就像是这样：</p>
+<blockquote>
+<p>3 5 8 <em><strong>*1*</strong></em> 2 9 4 7 6<br>
+选取最小进行置于队列首位重新排列<br>
+1 3 5 8 <em><strong>*2*</strong></em> 9 4 6 7<br>
+重复操作<br>
+1 2 3 5 8 9 4 6 7<br>
+依此类推</p>
+</blockquote>
+<p>但传统的思路在面对大量的数字时速度就直线下降</p>
+<blockquote>
+<p>3 5 8 1 2 9 4 7 6<br>
+先在数列中选择一个&quot;标准&quot; 此处选择6<br>
+3 5 8 1 2 9 4 7 <em><strong>*6*</strong></em><br>
+在标准的最左边的数字和最右边的数字进行标记<br>
+<u>3</u> 5 8 1 2 9 4 <u>7</u> <em><strong>*6*</strong></em><br>
+将左边的标记向右移动，直到标记的数字大于标准时停下<br>
+右边的标记向左移动，直到标记的数字小于标准时停下<br>
+3 5 <u>8</u> 1 2 9 <u>4</u> 7 <em><strong>*6*</strong></em><br>
+此时将两个标记位置交换<br>
+3 5 <u>4</u> 1 2 9 <u>8</u> 7 <em><strong>*6*</strong></em><br>
+再次重复上一过程<br>
+3 5 4 1 2 <u>9</u> 8 7 <em><strong>*6*</strong></em><br>
+此时两个标记相撞了;;;<br>
+如果标记的位置重叠，则将标记的位置与标准的位置交换<br>
+3 5 4 1 2 <em><strong>*6*</strong></em> 8 7 <u>9</u><br>
+当标准与标记进行位置交换之后，标准的左边就全部都是<br>
+小于标准的数字了，同理，右边则都是大于标准的数字<br>
+此时设置新的标准<br>
+3 5 4 1 <em><strong>*2*</strong></em> 6 8 7 9<br>
+重复重复重复(‾◡◝);;</p>
+</blockquote>
+<p>可见该方法的排序次数之少，效率可想而知</p>
+<p>阿...有空把代码试一遍；；；</p>
+
+                </div>
+            </article>
         </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://IamQwQ.github.io/post/javaOop/" class="post-title gt-a-link">
+                    Java 面向对象
+                </a>
+            </div>
+        
+
+        
+            <span id="/post/numbersArrangement/" class="leancloud_visitors" data-flag-title="另辟捷径的数字排列方式">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'JeaixEGcAfanGpKRejFkS5Cb-gzGzoHsz',
+		appKey: 'Kx1V76ddqGbiJEYNR8sEpcX5',
+		avatar: 'hide',
+		pageSize: 10,
+		recordIp: true,
+		placeholder: 'o(*////▽////*)q 快说些什么吧',
+		visitor: true,
+	});
+</script>
+
+        
+
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">暂时使用模板来写文
 会努力来脱离模板的</div>
@@ -148,6 +226,6 @@
 </script>
 
     </div>
+</div>
 </body>
-
 </html>

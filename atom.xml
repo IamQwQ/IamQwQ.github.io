@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://IamQwQ.github.io</id>
     <title>巨兽的多面体空间</title>
-    <updated>2020-11-08T06:56:55.166Z</updated>
+    <updated>2020-11-10T09:32:53.554Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://IamQwQ.github.io"/>
     <link rel="self" href="https://IamQwQ.github.io/atom.xml"/>
@@ -11,6 +11,49 @@
     <logo>https://IamQwQ.github.io/images/avatar.png</logo>
     <icon>https://IamQwQ.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 巨兽的多面体空间</rights>
+    <entry>
+        <title type="html"><![CDATA[另辟捷径的数字排列方式]]></title>
+        <id>https://IamQwQ.github.io/post/numbersArrangement/</id>
+        <link href="https://IamQwQ.github.io/post/numbersArrangement/">
+        </link>
+        <updated>2020-11-10T09:30:43.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>本文多数内容转载于b站up主oooooohmygosh与ttttttiger虎的视频 <a href="https://www.bilibili.com/video/BV1zD4y197Qi">传送门</a></strong></p>
+<p>我们在对若干数字进行排列的时候总是会先去寻找数列中最小或最大的数字放在数列的最前或最后，就像是这样：</p>
+<blockquote>
+<p>3 5 8 <em><strong>*1*</strong></em> 2 9 4 7 6<br>
+选取最小进行置于队列首位重新排列<br>
+1 3 5 8 <em><strong>*2*</strong></em> 9 4 6 7<br>
+重复操作<br>
+1 2 3 5 8 9 4 6 7<br>
+依此类推</p>
+</blockquote>
+<p>但传统的思路在面对大量的数字时速度就直线下降</p>
+<blockquote>
+<p>3 5 8 1 2 9 4 7 6<br>
+先在数列中选择一个&quot;标准&quot; 此处选择6<br>
+3 5 8 1 2 9 4 7 <em><strong>*6*</strong></em><br>
+在标准的最左边的数字和最右边的数字进行标记<br>
+<u>3</u> 5 8 1 2 9 4 <u>7</u> <em><strong>*6*</strong></em><br>
+将左边的标记向右移动，直到标记的数字大于标准时停下<br>
+右边的标记向左移动，直到标记的数字小于标准时停下<br>
+3 5 <u>8</u> 1 2 9 <u>4</u> 7 <em><strong>*6*</strong></em><br>
+此时将两个标记位置交换<br>
+3 5 <u>4</u> 1 2 9 <u>8</u> 7 <em><strong>*6*</strong></em><br>
+再次重复上一过程<br>
+3 5 4 1 2 <u>9</u> 8 7 <em><strong>*6*</strong></em><br>
+此时两个标记相撞了;;;<br>
+如果标记的位置重叠，则将标记的位置与标准的位置交换<br>
+3 5 4 1 2 <em><strong>*6*</strong></em> 8 7 <u>9</u><br>
+当标准与标记进行位置交换之后，标准的左边就全部都是<br>
+小于标准的数字了，同理，右边则都是大于标准的数字<br>
+此时设置新的标准<br>
+3 5 4 1 <em><strong>*2*</strong></em> 6 8 7 9<br>
+重复重复重复(‾◡◝);;</p>
+</blockquote>
+<p>可见该方法的排序次数之少，效率可想而知</p>
+<p>阿...有空把代码试一遍；；；</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Java 面向对象]]></title>
         <id>https://IamQwQ.github.io/post/javaOop/</id>
