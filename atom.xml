@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://IamQwQ.github.io</id>
     <title>巨兽的多面体空间</title>
-    <updated>2020-11-27T18:39:46.245Z</updated>
+    <updated>2020-12-27T20:13:49.988Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://IamQwQ.github.io"/>
     <link rel="self" href="https://IamQwQ.github.io/atom.xml"/>
@@ -11,6 +11,21 @@
     <logo>https://IamQwQ.github.io/images/avatar.png</logo>
     <icon>https://IamQwQ.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 巨兽的多面体空间</rights>
+    <entry>
+        <title type="html"><![CDATA[「Java」面向对象&面向过程的理解]]></title>
+        <id>https://IamQwQ.github.io/post/javaOOP/</id>
+        <link href="https://IamQwQ.github.io/post/javaOOP/">
+        </link>
+        <updated>2020-12-27T20:10:43.000Z</updated>
+        <content type="html"><![CDATA[<p>oop，Object Oriented Programming，面向对象编程 - 这是java中的核心思想，大部分人对java的描述中都会带有面向对象的字眼</p>
+<p>但每次当我觉得理解之后使用举例来区别面向过程和面向对象的时候，通常会犯难，因为我发现我通常举着例子就把面向对象讲出了面向过程的特征</p>
+<p>啊？等会，不会只有我不懂面向对象吧</p>
+<figure data-type="image" tabindex="1"><img src="https://IamQwQ.github.io/post-images/1609100026342.jpg" alt="" loading="lazy"></figure>
+<p>让我解惑的缘由是看到java相关的视频时顺便又看了一下该up主的面向对象视频</p>
+<p>再去看视频复习面向对象的时候突然发现问题所在，面向对象是<strong>宏观</strong>上的思想，从需要实现什么功能开始，根据功能分成若干需要实现的类，但在类中去实际用代码实现的时候还是面向过程的，结论是：<strong>面向对象是包含面向过程的。</strong></p>
+<p>面向对象是一种思考方式，&quot;万物皆对象，对象皆有类&quot;，我们先抽象出拥有&quot;方法&quot;和&quot;字段&quot;的类，并将该类new出一个该类的实例，这个过程就是面向对象思想的最好的体现</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[「算法」种子 The Seed - 随机器原理]]></title>
         <id>https://IamQwQ.github.io/post/randomPrinciple/</id>
@@ -179,7 +194,7 @@ X_0,0\leq X_0&lt;m \ 表示初始值\\
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Java Swing组件]]></title>
+        <title type="html"><![CDATA[「Java」 Swing]]></title>
         <id>https://IamQwQ.github.io/post/javaSwingAssembly/</id>
         <link href="https://IamQwQ.github.io/post/javaSwingAssembly/">
         </link>

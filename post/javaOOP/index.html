@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>搜索 - 巨兽的多面体空间</title>
+<title>「Java」面向对象&amp;面向过程的理解 | 巨兽的多面体空间</title>
 
 <link rel="shortcut icon" href="https://IamQwQ.github.io/favicon.ico?v=1609100027932">
 
@@ -27,21 +25,11 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.0/dist/fuse.basic.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.3/ejs.min.js"></script>
-    <script src="https://IamQwQ.github.io/media/gridea-search/gridea-search.js"></script>
-    <script src="https://IamQwQ.github.io/media/gridea-search/result-template.ejs" type="text/ejs"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
-
 <body>
-    <style>
-        .searched-keyword {
-            background-color: yellow;
-            color: red;
-        }
-    </style>
-    <div class="main gt-bg-theme-color-first">
-        <nav class="navbar navbar-expand-lg">
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
     <div class="navbar-brand">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -105,16 +93,82 @@
     </div>
 </nav>
 
-        <div id="gridea-search-result" data-update="1609100027932">
-            <div class="searching" style="font-size: 18px; margin-top: 50px;">
-                <i class="fa fa-sync-alt fa-spin"></i>&nbsp;&nbsp;搜索中......
-                <br><br>
-                <span style="font-size: 65%; color: #aaa">第一次搜索可能需要耗费较长时间构建索引，请耐心等待...</span>
-            </div>
-            <div class="no-result" style="display:none; font-size: 20px; margin-top: 50px;">
-                <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;未搜索到相关文章，请更换关键词
-            </div>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    「Java」面向对象&amp;面向过程的理解
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-12-28 ·
+                    </time>
+                    
+                        <a href="https://IamQwQ.github.io/tag/java/" class="post-tags">
+                            # java
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>oop，Object Oriented Programming，面向对象编程 - 这是java中的核心思想，大部分人对java的描述中都会带有面向对象的字眼</p>
+<p>但每次当我觉得理解之后使用举例来区别面向过程和面向对象的时候，通常会犯难，因为我发现我通常举着例子就把面向对象讲出了面向过程的特征</p>
+<p>啊？等会，不会只有我不懂面向对象吧</p>
+<figure data-type="image" tabindex="1"><img src="https://IamQwQ.github.io/post-images/1609100026342.jpg" alt="" loading="lazy"></figure>
+<p>让我解惑的缘由是看到java相关的视频时顺便又看了一下该up主的面向对象视频</p>
+<p>再去看视频复习面向对象的时候突然发现问题所在，面向对象是<strong>宏观</strong>上的思想，从需要实现什么功能开始，根据功能分成若干需要实现的类，但在类中去实际用代码实现的时候还是面向过程的，结论是：<strong>面向对象是包含面向过程的。</strong></p>
+<p>面向对象是一种思考方式，&quot;万物皆对象，对象皆有类&quot;，我们先抽象出拥有&quot;方法&quot;和&quot;字段&quot;的类，并将该类new出一个该类的实例，这个过程就是面向对象思想的最好的体现</p>
+
+                </div>
+            </article>
         </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://IamQwQ.github.io/post/randomPrinciple/" class="post-title gt-a-link">
+                    「算法」种子 The Seed - 随机器原理
+                </a>
+            </div>
+        
+
+        
+            <span id="/post/javaOOP/" class="leancloud_visitors" data-flag-title="「Java」面向对象&amp;面向过程的理解">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'JeaixEGcAfanGpKRejFkS5Cb-gzGzoHsz',
+		appKey: 'Kx1V76ddqGbiJEYNR8sEpcX5',
+		avatar: 'hide',
+		pageSize: 10,
+		recordIp: true,
+		placeholder: 'o(*////▽////*)q 快说些什么吧',
+		visitor: true,
+	});
+</script>
+
+        
+
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">暂时使用模板来写文
 会努力来脱离模板的</div>
@@ -148,6 +202,6 @@
 </script>
 
     </div>
+</div>
 </body>
-
 </html>
