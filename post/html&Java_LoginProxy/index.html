@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>「我」&amp;「咖啡」 | 巨兽的多面体空间</title>
+<title>「html &amp; Java」简单的模拟用户登陆网站 | 巨兽的多面体空间</title>
 
 <link rel="shortcut icon" href="https://IamQwQ.github.io/favicon.ico?v=1609105055482">
 
@@ -97,40 +97,98 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    「我」&amp;「咖啡」
+                    「html &amp; Java」简单的模拟用户登陆网站
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-10-26 ·
+                        · 2020-12-28 ·
                     </time>
                     
-                        <a href="https://IamQwQ.github.io/tag/aboutme/" class="post-tags">
-                            # 关于巨兽
+                        <a href="https://IamQwQ.github.io/tag/java/" class="post-tags">
+                            # java
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <p>写这篇记录之前，我本想去起笔去写java的东西的，但现在是一个晚上，本来精神不振，混混沉沉，所以生出了买瓶装咖啡的想法，现在一瓶咖啡一块面包下肚，配合网易云食用霎时间精神焕发，据主观推测不出意料的话应该是要过美国人的时间表了..</p>
-<blockquote>
-<p>“咖啡”一词源自阿拉伯语“قهوة”，意思是“植物饮料”。在世界各地，人们越来越爱喝咖啡。随之而来的“<a href="https://baike.baidu.com/item/%E5%92%96%E5%95%A1%E6%96%87%E5%8C%96">咖啡文化</a>”充满生活的每个时刻。无论在家里、还是在办公室、或是各种社交场合，人们都在品着咖啡、它逐渐与时尚、现代生活、工作和休闲娱乐联系在一起。</p>
-</blockquote>
-<blockquote>
-<p>咖啡豆含有大约100种不同的物质，包括咖啡因、单宁酸、油和氮化合物等，每100克速溶咖啡中，含咖啡因44～100毫克；每100克调制咖啡中，含咖啡因64～124毫克。咖啡是一种兴奋剂，对人体会产生很多影响，它可利尿、刺激中枢神经和呼吸系统、扩大血管、使心跳加速、增强横纹肌的力量以及缓解大脑和肌肉疲劳。</p>
-</blockquote>
-<p>实实在在的说，接触咖啡的原因是其功能性。虽然很想说是因为其味道独特，入口如何如何，咽下回味又如何如何，但很遗憾，饮用咖啡的绝大多数时候都是觉得需要提神，而且我觉得应该有不会少的人都是因为这个而去喝咖啡的吧。</p>
-<p>为什么喝苦咖啡？</p>
-<p>喝美式低糖的时候确实很苦，只是一开始的时候会这么想，缘于其功效也比其他咖啡要强的多，所以从接触之后时不时就想整一瓶，后来再喝的时候苦的感受却没有那么强烈了，喝下去的时候确实是苦的，但是却忍不住一口一口再喝下去，难道是觉醒了奇怪的品味属性( ? )，凭心而论，喝的时候没有那么仔细品味。<br>
-但实际上这是一个简单而又充满哲学（笑）的原理</p>
-<p><strong>当你习惯了，它就是美味了</strong>。</p>
+                    <p>产生这个想法应该是学习html的时候听到表单提交的两种method方式：get和post，在post方式下，表单提交时就会交给预设好的脚本地址处理，处理完成之后再响应给浏览器显示登陆之后的页面</p>
+<p>所以按理来说网站提交登陆信息应该都是这个亚子的，所以我一开始的想法是我们或许可以通过html来代理我们一键登陆？（java部分实现在后面一点）</p>
+<p>想要实现自动帮助我们登陆，首先需要知道的信息有：</p>
 <ul>
-<li></li>
+<li>表单中UserName项的name和PassWord项的name</li>
+<li>Action的地址</li>
 </ul>
-<p>2020/11/28更</p>
-<p>咖啡的用途广泛，其功能性独树一帜，甚至可以凭借他的特性完成一些令人难以想象的操作，比如调整时间差<br>
-如果作息紊乱，首先保持清醒<br>
-<img src="https://IamQwQ.github.io/post-images/1606501528671.png" alt="" loading="lazy"><br>
-一瓶含149mg的美式足够让你保持清醒，咖啡的半衰期是四个小时，则可以凭借这一特性预先计算好时间使用咖啡（一般为6~7个小时之前）则可以让你在预计的时间在床上呼呼大睡，原理则是凭借<a href="https://iamqwq.github.io/post/polyhedronCoffeinePrinciple/">之前这篇文章所述</a></p>
-<p>（本来想来更一些有意思的故事的，结果又变成了经验之谈和科普 😄）</p>
+<p>这些可以通过chrome浏览器内置的抓包工具（F12）选择network选项卡打开，并故意在账号密码中输入错误：</p>
+<figure data-type="image" tabindex="1"><img src="https://IamQwQ.github.io/post-images/1609104629668.png" alt="" loading="lazy"></figure>
+<p>啊有了有了</p>
+<figure data-type="image" tabindex="2"><img src="https://IamQwQ.github.io/post-images/1609104638634.png" alt="" loading="lazy"></figure>
+<p>令人失望的是我并没有找到form信息，倒是在request payload项中发现了我输入的信息</p>
+<blockquote>
+<p>FormData和Payload是浏览器传输给接口的两种格式，这两种方式浏览器是通过Content-Type来进行区分的</p>
+</blockquote>
+<p>然而我急切的想要实现发送post请求让服务端响应请求，所以我对不同的网站分别进行了尝试：</p>
+<figure data-type="image" tabindex="3"><img src="https://IamQwQ.github.io/post-images/1609104693150.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://IamQwQ.github.io/post-images/1609104706897.png" alt="" loading="lazy"></figure>
+<p>但问题层出：大部分知名网站都有防备人机登陆的措施（加载到页面时随机分配一个id，当发起post时也要求post该id又或是验证码和图片互动）</p>
+<p>但我还是幸运的找到了一个没有这些防备措施的网站：mcmod.cn！没错，谁想得到呢，mcmodwiki官网居然这么没牌面（顺便一提，他主页账户登出还不管用...）</p>
+<figure data-type="image" tabindex="5"><img src="https://IamQwQ.github.io/post-images/1609104716794.jpg" alt="" loading="lazy"></figure>
+<p>打开页面！重复之前的步骤，非常的顺利的找到了我们所需要的信息：</p>
+<ul>
+<li>Request URL：https://www.mcmod.cn/ajax/ajax___logreg_do.php</li>
+<li>todo：login（这大概是请求名）</li>
+<li>un：用户名</li>
+<li>pw：密码</li>
+</ul>
+<figure data-type="image" tabindex="6"><img src="https://IamQwQ.github.io/post-images/1609104734442.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://IamQwQ.github.io/post-images/1609104745936.png" alt="" loading="lazy"></figure>
+<p>有了信息，html表单则并不是问题：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;
+            loginForm
+        &lt;/title&gt;
+    &lt;/head&gt;
+
+
+    &lt;body&gt;
+        &lt;!--表格 四行三列 --&gt;
+        &lt;table width=&quot;600px&quot; border=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+            &lt;form action=&quot;https://www.mcmod.cn/ajax/ajax___logreg_do.php&quot; method=&quot;POST&quot;&gt;
+                &lt;tbody&gt;
+                    &lt;tr height=&quot;40px&quot;&gt;
+                        &lt;td rowspan=&quot;5&quot; align=&quot;center&quot;&gt;information&lt;/td&gt;
+                        &lt;td colspan=&quot;2&quot; align=&quot;center&quot;&gt;i just want no border&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr height=&quot;40px&quot;&gt;
+                        &lt;td align=&quot;center&quot;&gt;userName:&lt;/td&gt;
+                        &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;un&quot;&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr height=&quot;40px&quot;&gt;
+                        &lt;td align=&quot;center&quot;&gt;passWord:&lt;/td&gt;
+                        &lt;td&gt;&lt;input type=&quot;password&quot; name=&quot;pw&quot;&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr height=&quot;40px&quot;&gt;
+                        &lt;td align=&quot;center&quot;&gt;event:&lt;/td&gt;
+                        &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;todo&quot;&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr height=&quot;40px&quot;&gt;
+                        &lt;td colspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;&amp;nbsp;&lt;input type=&quot;reset&quot; value=&quot;reset&quot;&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/form&gt;
+        &lt;/table&gt;
+
+
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>大概简单的写了个页面，打开网页向表单填写信息提交</p>
+<figure data-type="image" tabindex="8"><img src="https://IamQwQ.github.io/post-images/1609104752023.png" alt="" loading="lazy"></figure>
+<p>只见网页跳转：成功的实现了发送post请求并收到了服务端的响应	= v =</p>
+<h3 id="未完">未完</h3>
 
                 </div>
             </article>
@@ -139,14 +197,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://IamQwQ.github.io/post/javaSwingAssembly/" class="post-title gt-a-link">
-                    「Java」 Swing
+                <a href="https://IamQwQ.github.io/post/javaOOP/" class="post-title gt-a-link">
+                    「Java」面向对象&amp;面向过程的理解
                 </a>
             </div>
         
 
         
-            <span id="/post/aboutCoffee/" class="leancloud_visitors" data-flag-title="「我」&amp;「咖啡」">
+            <span id="/post/html&amp;Java_LoginProxy/" class="leancloud_visitors" data-flag-title="「html &amp; Java」简单的模拟用户登陆网站">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>

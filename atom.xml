@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://IamQwQ.github.io</id>
     <title>巨兽的多面体空间</title>
-    <updated>2020-12-27T20:13:49.988Z</updated>
+    <updated>2020-12-27T21:37:57.349Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://IamQwQ.github.io"/>
     <link rel="self" href="https://IamQwQ.github.io/atom.xml"/>
@@ -11,6 +11,93 @@
     <logo>https://IamQwQ.github.io/images/avatar.png</logo>
     <icon>https://IamQwQ.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 巨兽的多面体空间</rights>
+    <entry>
+        <title type="html"><![CDATA[「html & Java」简单的模拟用户登陆网站]]></title>
+        <id>https://IamQwQ.github.io/post/html&amp;Java_LoginProxy/</id>
+        <link href="https://IamQwQ.github.io/post/html&amp;Java_LoginProxy/">
+        </link>
+        <updated>2020-12-27T21:29:25.000Z</updated>
+        <content type="html"><![CDATA[<p>产生这个想法应该是学习html的时候听到表单提交的两种method方式：get和post，在post方式下，表单提交时就会交给预设好的脚本地址处理，处理完成之后再响应给浏览器显示登陆之后的页面</p>
+<p>所以按理来说网站提交登陆信息应该都是这个亚子的，所以我一开始的想法是我们或许可以通过html来代理我们一键登陆？（java部分实现在后面一点）</p>
+<p>想要实现自动帮助我们登陆，首先需要知道的信息有：</p>
+<ul>
+<li>表单中UserName项的name和PassWord项的name</li>
+<li>Action的地址</li>
+</ul>
+<p>这些可以通过chrome浏览器内置的抓包工具（F12）选择network选项卡打开，并故意在账号密码中输入错误：</p>
+<figure data-type="image" tabindex="1"><img src="https://IamQwQ.github.io/post-images/1609104629668.png" alt="" loading="lazy"></figure>
+<p>啊有了有了</p>
+<figure data-type="image" tabindex="2"><img src="https://IamQwQ.github.io/post-images/1609104638634.png" alt="" loading="lazy"></figure>
+<p>令人失望的是我并没有找到form信息，倒是在request payload项中发现了我输入的信息</p>
+<blockquote>
+<p>FormData和Payload是浏览器传输给接口的两种格式，这两种方式浏览器是通过Content-Type来进行区分的</p>
+</blockquote>
+<p>然而我急切的想要实现发送post请求让服务端响应请求，所以我对不同的网站分别进行了尝试：</p>
+<figure data-type="image" tabindex="3"><img src="https://IamQwQ.github.io/post-images/1609104693150.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://IamQwQ.github.io/post-images/1609104706897.png" alt="" loading="lazy"></figure>
+<p>但问题层出：大部分知名网站都有防备人机登陆的措施（加载到页面时随机分配一个id，当发起post时也要求post该id又或是验证码和图片互动）</p>
+<p>但我还是幸运的找到了一个没有这些防备措施的网站：mcmod.cn！没错，谁想得到呢，mcmodwiki官网居然这么没牌面（顺便一提，他主页账户登出还不管用...）</p>
+<figure data-type="image" tabindex="5"><img src="https://IamQwQ.github.io/post-images/1609104716794.jpg" alt="" loading="lazy"></figure>
+<p>打开页面！重复之前的步骤，非常的顺利的找到了我们所需要的信息：</p>
+<ul>
+<li>Request URL：https://www.mcmod.cn/ajax/ajax___logreg_do.php</li>
+<li>todo：login（这大概是请求名）</li>
+<li>un：用户名</li>
+<li>pw：密码</li>
+</ul>
+<figure data-type="image" tabindex="6"><img src="https://IamQwQ.github.io/post-images/1609104734442.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://IamQwQ.github.io/post-images/1609104745936.png" alt="" loading="lazy"></figure>
+<p>有了信息，html表单则并不是问题：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;
+            loginForm
+        &lt;/title&gt;
+    &lt;/head&gt;
+
+
+    &lt;body&gt;
+        &lt;!--表格 四行三列 --&gt;
+        &lt;table width=&quot;600px&quot; border=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+            &lt;form action=&quot;https://www.mcmod.cn/ajax/ajax___logreg_do.php&quot; method=&quot;POST&quot;&gt;
+                &lt;tbody&gt;
+                    &lt;tr height=&quot;40px&quot;&gt;
+                        &lt;td rowspan=&quot;5&quot; align=&quot;center&quot;&gt;information&lt;/td&gt;
+                        &lt;td colspan=&quot;2&quot; align=&quot;center&quot;&gt;i just want no border&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr height=&quot;40px&quot;&gt;
+                        &lt;td align=&quot;center&quot;&gt;userName:&lt;/td&gt;
+                        &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;un&quot;&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr height=&quot;40px&quot;&gt;
+                        &lt;td align=&quot;center&quot;&gt;passWord:&lt;/td&gt;
+                        &lt;td&gt;&lt;input type=&quot;password&quot; name=&quot;pw&quot;&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr height=&quot;40px&quot;&gt;
+                        &lt;td align=&quot;center&quot;&gt;event:&lt;/td&gt;
+                        &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;todo&quot;&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr height=&quot;40px&quot;&gt;
+                        &lt;td colspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;&amp;nbsp;&lt;input type=&quot;reset&quot; value=&quot;reset&quot;&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/form&gt;
+        &lt;/table&gt;
+
+
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>大概简单的写了个页面，打开网页向表单填写信息提交</p>
+<figure data-type="image" tabindex="8"><img src="https://IamQwQ.github.io/post-images/1609104752023.png" alt="" loading="lazy"></figure>
+<p>只见网页跳转：成功的实现了发送post请求并收到了服务端的响应	= v =</p>
+<h3 id="未完">未完</h3>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[「Java」面向对象&面向过程的理解]]></title>
         <id>https://IamQwQ.github.io/post/javaOOP/</id>
