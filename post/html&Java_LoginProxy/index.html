@@ -6,7 +6,7 @@
 
 <title>「html &amp; Java」简单的模拟用户登陆网站 | 巨兽的多面体空间</title>
 
-<link rel="shortcut icon" href="https://IamQwQ.github.io/favicon.ico?v=1609105055482">
+<link rel="shortcut icon" href="https://IamQwQ.github.io/favicon.ico?v=1609133028500">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://IamQwQ.github.io/styles/main.css">
@@ -85,7 +85,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1609105055482" action="/search/index.html">
+            <form id="gridea-search-form" style="position: relative" data-update="1609133028500" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
             </form>
@@ -112,6 +112,7 @@
                 <div class="post-content">
                     <p>产生这个想法应该是学习html的时候听到表单提交的两种method方式：get和post，在post方式下，表单提交时就会交给预设好的脚本地址处理，处理完成之后再响应给浏览器显示登陆之后的页面</p>
 <p>所以按理来说网站提交登陆信息应该都是这个亚子的，所以我一开始的想法是我们或许可以通过html来代理我们一键登陆？（java部分实现在后面一点）</p>
+<h2 id="html实现">html实现</h2>
 <p>想要实现自动帮助我们登陆，首先需要知道的信息有：</p>
 <ul>
 <li>表单中UserName项的name和PassWord项的name</li>
@@ -188,7 +189,76 @@
 <p>大概简单的写了个页面，打开网页向表单填写信息提交</p>
 <figure data-type="image" tabindex="8"><img src="https://IamQwQ.github.io/post-images/1609104752023.png" alt="" loading="lazy"></figure>
 <p>只见网页跳转：成功的实现了发送post请求并收到了服务端的响应	= v =</p>
-<h3 id="未完">未完</h3>
+<h2 id="java实现">Java实现</h2>
+<p>但因为java有所小成，所以难得实例的机会不用可就可惜了XD</p>
+<p>参考了<a href="https://blog.csdn.net/zz775854904/article/details/94006831">csdn的一篇文章</a>，大致流程也是较为简单的，主要使用了net包下的URLConnection类，首先通过api帮助文档来查看URLConnection类的信息：</p>
+<figure data-type="image" tabindex="9"><img src="https://IamQwQ.github.io/post-images/1609132903529.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://IamQwQ.github.io/post-images/1609132910038.png" alt="" loading="lazy"></figure>
+<p>大致baidu参考一下dalao们写的例子和相关的信息之后，思路大概是这样的：</p>
+<ol>
+<li>指定url地址</li>
+<li>连接对象</li>
+<li>设置参数（经过参考得知需要设置setDoInput和setDoOutput与一般请求属性）</li>
+<li>通过getOutputStream来输出需要post的信息</li>
+<li>通过getInputStream来接收来自服务端的响应</li>
+</ol>
+<pre><code class="language-java">package WebOperater;
+
+import java.net.*;
+import java.io.*;
+
+public class test {
+
+    public void Post(String path){
+        try {
+            //post的URL地址:https://www.mcmod.cn/ajax/ajax___logreg_do.php
+            URL url = new URL(path);
+
+            //打开连接
+            URLConnection urlConnection = url.openConnection();
+
+            //设置参数
+            urlConnection.setDoInput(true);
+            urlConnection.setDoOutput(true);
+
+            //通用设置
+            urlConnection.setRequestProperty(&quot;accept&quot;, &quot;*/*&quot;);
+            urlConnection.setRequestProperty(&quot;connection&quot;, &quot;Keep-Alive&quot;);
+            urlConnection.setRequestProperty(&quot;user-agent&quot;, &quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)&quot;);
+
+            //打印输出流到连接对象
+            PrintWriter printWriter = new PrintWriter(urlConnection.getOutputStream());
+            printWriter.print(&quot;todo=login&amp;un=un&amp;pw=pw&quot;);
+            printWriter.flush();
+
+            //接收来自服务端的响应 并打印出结果
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+
+            String line = &quot;&quot;;
+            String result = &quot;&quot;;
+            while ((line = bufferedReader.readLine())!=null){
+                result += line;
+            }
+
+            System.out.println(result);
+
+        } catch (Exception e) {
+            //打印异常信息
+            e.printStackTrace();
+
+        }
+    }
+
+}
+</code></pre>
+<p>通用一般设置中不能缺少user-agent（如果缺了post的时候就会报错）</p>
+<pre><code class="language-java">java.io.IOException: Server returned HTTP response code: 403 for URL: https://www.mcmod.cn/ajax/ajax___logreg_do.php
+</code></pre>
+<p>而如果账号和密码正确，就会收到这样的响应：</p>
+<pre><code class="language-java">&lt;script language=&quot;javascript&quot;&gt;Jump('/')&lt;/script&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=/&quot;&gt;&lt;script type=&quot;text/javascript&quot;  src=&quot;https://idm-su.baidu.com/su_new.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>这里不是很懂= = 不过就整个过程而言已经是完成了简单的模拟用户登陆的过程</p>
+<p>未来的目标则是模拟bilibili的用户登陆！（立flag）</p>
 
                 </div>
             </article>
